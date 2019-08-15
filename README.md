@@ -1,2 +1,2 @@
-# Guia de Ofertas
-Criação de um guia de ofertas
+# Diário Escolar
+Criação de um diário escolar
