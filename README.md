@@ -1,2 +1,2 @@
-# Diário Escolar
-Criação de um diário escolar
+# Gestão de Restaurante
+Desenvolvimento de um controle gerencial para restaurantes
