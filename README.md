@@ -1,2 +1,2 @@
-# Gestão de Restaurante
-Desenvolvimento de um controle gerencial para restaurantes
+# Sistema de Vendas para Lanchonetes
+Desenvolvimento de um sistema de vendas para Lanchonetes
