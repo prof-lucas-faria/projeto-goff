@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h2>Cadastro Funcionários</h2>
-	<form name="cadastroFuncionario" method="POST" action="#">
+	<form name="cadastroFuncionario" method="POST" action="../controller/mesaController.php">
 		<fieldset>
 			<div>
 				<label>Nome: </label>
@@ -28,8 +28,8 @@
 	                <option value="">--Selecione--</option>
 	                <option value="1">Administrador</option>
 	                <option value="2">Atendende / Caixa</option>
-	                <option value="2">Garçom</option>
-	                <option value="2">Cozinheiro</option>
+	                <option value="3">Garçom</option>
+	                <option value="4">Cozinheiro</option>
 	            </select>
 	        </div>
 			<div>
