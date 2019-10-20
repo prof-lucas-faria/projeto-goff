@@ -6,7 +6,7 @@
 	<title>SISTEMA GERENTE</title>
 </head>
 <body>
-    <?php require_once '../controller/mesaController.php';?>
+    <?php require_once '../controller/categoriaController.php';?>
     <!-- FORMULÁRIO PARA EDITAR DADOS -->
     <?php if(isset($_GET['editar_registro'])){
         foreach (listaCategorias() as $categorias){
@@ -86,7 +86,7 @@
                         <td><?= $categorias->idCategoria;?></td>
                         <td><?= $categorias->nome;?></td>
                         <td><a href="cadastroCategoria.php?editar_registro=<?php echo $categorias->idCategoria; ?>"><button>Editar</button></a></td>
-                        <td><a href="cadastroCategoria.php?excluir_registro=<?php echo $mesas->idCategoria; ?>"><button>Excluir</button></a></td>
+                        <td><a href="cadastroCategoria.php?excluir_registro=<?php echo $categorias->idCategoria; ?>"><button>Excluir</button></a></td>
                     </tr>
                 </tbody>
                 <?php }?>
@@ -97,4 +97,3 @@
     <?php }?>    
 </body>
 </html>
-?>

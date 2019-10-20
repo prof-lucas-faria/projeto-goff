@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -21,6 +21,14 @@
 			<div>
 				<label>Endereço: </label>
 	            <input type="text" id="endereco" name="endereco" required="required">
+	        </div>
+	       	<div>
+	            <label>Sexo:</label>
+	            <select id="sexo" name="sexo">
+	                <option value="">--Selecione--</option>
+	                <option value="Feminino">Feminino</option>
+	                <option value="Masculino">Masculino</option>
+	            </select>
 	        </div>
 	        <div>
 	            <label>Função:</label>

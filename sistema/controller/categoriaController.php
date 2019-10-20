@@ -1,6 +1,7 @@
 <?php
 require_once '../controller/DB.php';
 require_once '../model/Categoria.php';
+
 if (isset($_POST['salvar'])) {
     $dadosFormularioCategoria = array(
         'nome' =>$_POST['nome']
@@ -33,7 +34,8 @@ if(isset($_POST['excluir'])){
 if(isset($_POST['cancelar'])){
     header("Location: ../view/cadastroCategoria.php");
 }
-function listaMesas() {
+
+function listaCategorias() {
     $categoria = new Categoria(DB::getInstance(), null);
     return $categoria->listar();
 }
