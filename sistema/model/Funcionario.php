@@ -7,6 +7,7 @@ class Funcionario{
   private $nome;
   private $CPF;
   private $endereco;
+  private $sexo;
   private $funcao;
   private $telefone;
   private $whatsapp;
@@ -31,17 +32,20 @@ class Funcionario{
 
         try {
 
-            $sql = 'INSERT INTO funcionarios (nome, CPF, endereco, funcao, telefone, whatsapp, senha, e-mail) 
-            VALUES (?,?,?,?,?,?,?,?)';
+            $sql = 'INSERT INTO funcionarios (nome, CPF, endereco, sexo, funcao, telefone, whatsapp, senha, email, status) 
+            VALUES (?,?,?,?,?,?,?,?,?,?)';
+            $status = 1;
             $stmt = $this->conexao->prepare($sql);
-            $stmt->bindValue(1, $this->coordenador['nome']);
-            $stmt->bindValue(2, $this->coordenador['CPF']);
-            $stmt->bindValue(3, $this->coordenador['endereco']);
-            $stmt->bindValue(4, $this->coordenador['funcao']);
-            $stmt->bindValue(5, $this->coordenador['telefone']);
-            $stmt->bindValue(6, $this->coordenador['whatsapp']);
-            $stmt->bindValue(7, $this->coordenador['senha']);
-            $stmt->bindValue(8, $this->coordenador['e-mail']);
+            $stmt->bindValue(1, $this->funcionario['nome']);
+            $stmt->bindValue(2, $this->funcionario['CPF']);
+            $stmt->bindValue(3, $this->funcionario['endereco']);
+            $stmt->bindValue(4, $this->funcionario['sexo']);
+            $stmt->bindValue(5, $this->funcionario['funcao']);
+            $stmt->bindValue(6, $this->funcionario['telefone']);
+            $stmt->bindValue(7, $this->funcionario['whatsapp']);
+            $stmt->bindValue(8, $this->funcionario['senha']);
+            $stmt->bindValue(9, $this->funcionario['email']);
+            $stmt->bindValue(10, $status);
             return $stmt->execute();
 
             } catch (PDOException $e) {
@@ -49,5 +53,48 @@ class Funcionario{
             }
     }
 
+    public function listar() {
+        try {
+            $sql = 'SELECT * FROM funcionarios WHERE status > 0';
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function editar() {
+        try {
+            $sql = "UPDATE funcionarios SET nome = ?, CPF = ?, endereco = ?, sexo = ?, funcao = ?, telefone = ?,
+                    whatsapp = ?, email = ? WHERE idFuncionario = ?";
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $this->funcionario['nome']);
+            $stmt->bindValue(2, $this->funcionario['CPF']);
+            $stmt->bindValue(3, $this->funcionario['endereco']);
+            $stmt->bindValue(4, $this->funcionario['sexo']);
+            $stmt->bindValue(5, $this->funcionario['funcao']);
+            $stmt->bindValue(6, $this->funcionario['telefone']);
+            $stmt->bindValue(7, $this->funcionario['whatsapp']);
+            $stmt->bindValue(8, $this->funcionario['email']);
+            $stmt->bindValue(9, $this->funcionario['idFuncionario']);
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+        public function deletar() {
+        try {
+            $sql = "UPDATE funcionarios SET status = ? WHERE idFuncionario = ?";
+            $status = 0;
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $status);
+            $stmt->bindValue(2, $this->funcionario['idFuncionario']);
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }
 ?>
