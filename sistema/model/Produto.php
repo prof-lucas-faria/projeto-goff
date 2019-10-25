@@ -38,11 +38,11 @@ class Produto{
             $status = 1;
 
             $stmt = $this->conexao->prepare($sql);
-            $stmt->bindValue(1, $this->funcionario['nome']);
-            $stmt->bindValue(2, $this->funcionario['idCategoria']);
-            $stmt->bindValue(3, $this->funcionario['foto']);
-            $stmt->bindValue(4, $this->funcionario['precoCusto']);
-            $stmt->bindValue(5, $this->funcionario['precoVenda']);
+            $stmt->bindValue(1, $this->produtos['nome']);
+            $stmt->bindValue(2, $this->produtos['idCategoria']);
+            $stmt->bindValue(3, $this->produtos['foto']);
+            $stmt->bindValue(4, $this->produtos['precoCusto']);
+            $stmt->bindValue(5, $this->produtos['precoVenda']);
             $stmt->bindValue(6, $status);
 
             return $stmt->execute();
@@ -70,13 +70,13 @@ class Produto{
             $sql = "UPDATE produtos SET nome = ?, idCategoria = ?, foto = ?, precoCusto = ?, precoVenda = ?, status = ? where idProduto = ?";
 
             $stmt = $this->conexao->prepare($sql);
-            $stmt->bindValue(1, $this->funcionario['nome']);
-            $stmt->bindValue(2, $this->funcionario['idCategoria']);
-            $stmt->bindValue(3, $this->funcionario['foto']);
-            $stmt->bindValue(4, $this->funcionario['precoCusto']);
-            $stmt->bindValue(5, $this->funcionario['precoVenda']);
-            $stmt->bindValue(6, $this->funcionario['status']);
-            $stmt->bindValue(7, $this->funcionario['idProduto']);
+            $stmt->bindValue(1, $this->produtos['nome']);
+            $stmt->bindValue(2, $this->produtos['idCategoria']);
+            $stmt->bindValue(3, $this->produtos['foto']);
+            $stmt->bindValue(4, $this->produtos['precoCusto']);
+            $stmt->bindValue(5, $this->produtos['precoVenda']);
+            $stmt->bindValue(6, $this->produtos['status']);
+            $stmt->bindValue(7, $this->produtos['idProduto']);
 
 
             return $stmt->execute();
@@ -89,12 +89,12 @@ class Produto{
         public function deletar() {
 
         try {
-            $sql = "UPDATE produtos SET status = ? WHERE idProtudo = ?";
+            $sql = "UPDATE produtos SET status = ? WHERE idProduto = ?";
             $status = 0;
 
             $stmt = $this->conexao->prepare($sql);
             $stmt->bindValue(1, $status);
-            $stmt->bindValue(2, $this->funcionario['idProtudo']);
+            $stmt->bindValue(2, $this->produtos['idProduto']);
             return $stmt->execute();
         } catch (PDOException $e) {
             echo $e->getMessage();
