@@ -2,9 +2,9 @@
 require_once '../controller/DB.php';
 class Caixa{
 	private $conexao;
-	private $caixa;
     private $nome;
-    private $saldoInicial
+    private $funcionario;
+    private $saldoInicial;
 
     public function __get($atributo) {
         return $this->$atributo;
@@ -18,10 +18,13 @@ class Caixa{
     }
     public function inserir() {
         try {
-            $sql = 'INSERT INTO caixas (nome) VALUES (?)';    
+            $sql = 'INSERT INTO caixas (nome, idFuncionario, saldoInicial, status ) VALUES (?,?,?,?)';    
             $stmt = $this->conexao->prepare($sql);
+            $status = 1;
             $stmt->bindValue(1, $this->caixa['nome']);
-            $stmt->bindValue(1, $this->caixa['saldoInicial']);
+            $stmt->bindValue(2, $this->caixa['idFuncionario']);
+            $stmt->bindValue(3, $this->caixa['saldoInicial']);
+            $stmt->bindValue(4, $status);
             return $stmt->execute();
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -29,7 +32,7 @@ class Caixa{
     }
     public function listar() {
         try {
-            $sql = 'SELECT * FROM caixas';
+            $sql = 'SELECT * FROM caixas WHERE status > 0';
             $stmt = $this->conexao->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -37,24 +40,17 @@ class Caixa{
             echo $e->getMessage();
         }
     }
-    public function editar() {
-        try {
-            $sql = "UPDATE caixas SET nome = ? WHERE idcaixa = ?";
-            $stmt = $this->conexao->prepare($sql);
-            $stmt->bindValue(1, $this->mesa['nome']);
-            $stmt->bindValue(1, $this->caixa['saldoInicial']);
-            $stmt->bindValue(2, $this->mesa['idcaixa']);            
-            return $stmt->execute();
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
-    }
+
+////////////////////// CAIXA NÃO PODE SER EDITADO /////////////////////////
     
+    // CAIXA NÃO PODE SER DELETADO - SOMENTE INATIVADO
     public function deletar() {
         try {
-            $sql = 'DELETE FROM caixas WHERE idcaixa = ?';
+            $sql = "UPDATE caixas SET status = ? WHERE idCaixa = ?";
+            $status = 0;
             $stmt = $this->conexao->prepare($sql);
-            $stmt->bindValue(1, $this->caixa['idcaixa']);
+            $stmt->bindValue(1, $status);
+            $stmt->bindValue(2, $this->caixa['idcaixa']);
             return $stmt->execute();
         } catch (PDOException $e) {
             echo $e->getMessage();

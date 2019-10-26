@@ -7,42 +7,16 @@
 </head>
 <body>
     <?php require_once '../controller/caixaController.php';?>
-    <!-- FORMULÁRIO PARA EDITAR DADOS -->
-    <?php if(isset($_GET['editar_registro'])){
+    <!-- EXIBIR A MENSAGEM DE CONFIRMAÇÃO DE EXCLUIR DADOS -->
+    <?php if (isset($_GET['excluir_registro'])) {
         foreach (listacaixas() as $caixas){
-            if($caixas->idcaixa == $_GET['editar_registro']){ ?>
-    <h2>Editar Cadastro caixas</h2>
-    <div>
-        <form name="editarcaixa" method="POST" action="../controller/caixaController.php">
-            <div>
-                <input type="hidden" id="idcaixa" name="idcaixa" value="<?php echo $caixas->idcaixa ?>">
-                <label>Nome: </label>
-                <input type="text" id="nome" name="nome" required="required" autofocus value="<?php echo $caixas->nome ?>">
-            </div>
-            <div>
-                    <label>Caixa Inicial: </label>
-                    <input type="text" id="caixaInicial" name="caixaInicial" required="required">
-            </div>
-            <hr>
-            <div>
-                <input type="submit" id="editar" name="editar" value="Editar">
-                <input type="submit" id="cancelar" name="cancelar" value="Cancelar">
-            </div>
-        </form>
-    </div>
-    <?php
-            }
-        }
-    // EXIBIR A MENSAGEM DE CONFIRMAÇÃO DE EXCLUIR DADOS
-    } elseif (isset($_GET['excluir_registro'])) {
-        foreach (listacaixas() as $caixas){
-            if($caixas->idcaixa == $_GET['excluir_registro']){ ?>
+            if($caixas->idCaixa == $_GET['excluir_registro']){ ?>
     <div>
         <form name="excluircaixa" method="POST" action="../controller/caixaController.php">
             <div>
                 <input type="hidden" id="idcaixa" name="idcaixa" value="<?php echo $caixas->idcaixa ?>">
                 <h2>Excluir caixa</h2>
-                <h4>Deseja mesmo excluir a caixa?</h4>
+                <h4>Deseja mesmo excluir o caixa?</h4>
             </div>
             <hr>
             <div>
@@ -66,9 +40,18 @@
                     <input type="hidden" id="idcaixa" name="idcaixa">
                 </div>
                 <div>
+                    <label>Funcionário responsável:</label>
+                    <select id="idFuncionario" name="idFuncionario">
+                        <?php foreach (listaFuncionarios() as $funcionarios){?>
+                        <option value="">--Selecione--</option>
+                        <option id="<?= $funcionarios->idFuncionario; ?>" value="<?= $funcionarios->idFuncionario; ?>"><?= $funcionarios->nome;?></option>
+                        <?php }?>
+                    </select>
+                </div>
+                <div>
                     <label>Caixa Inicial: </label>
-                    <input type="text" id="caixaInicial" name="caixaInicial" required="required">
-            </div>
+                    <input type="text" id="saldoInicial" name="saldoInicial" required="required">
+                </div>
                 <hr>
                 <div>
                     <input type="submit" id="salvar" name="salvar" value="Salvar">
@@ -85,16 +68,19 @@
                     <tr>
                         <th>#</th>
                         <th>Nome</th>
-                        <th colspan="2">Ação</th>
+                        <th>Funcionário Responsável</th>
+                        <th>Saldo Inicial</th>
+                        <th>Ação</th>
                     </tr>
                 </thead>
                 <?php foreach (listacaixas() as $caixas){?>
                 <tbody>
-                    <tr data-id="<?= $caixas->idcaixa;?>">
-                        <td><?= $caixas->idcaixa;?></td>
+                    <tr data-id="<?= $caixas->idCaixa;?>">
+                        <td><?= $caixas->idCaixa;?></td>
                         <td><?= $caixas->nome;?></td>
-                        <td><a href="cadastrocaixa.php?editar_registro=<?php echo $caixas->idcaixa; ?>"><button>Editar</button></a></td>
-                        <td><a href="cadastrocaixa.php?excluir_registro=<?php echo $caixas->idcaixa; ?>"><button>Excluir</button></a></td>
+                        <td><?= $caixas->idFuncionario;?></td>
+                        <td><?= $caixas->saldoInicial;?></td>
+                        <td><a href="cadastroCaixa.php?excluir_registro=<?php echo $caixas->idCaixa; ?>"><button>Excluir</button></a></td>
                     </tr>
                 </tbody>
                 <?php }?>

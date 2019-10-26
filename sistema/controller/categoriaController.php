@@ -4,7 +4,7 @@ require_once '../model/Categoria.php';
 
 if (isset($_POST['salvar'])) {
     $dadosFormularioCategoria = array(
-        'nome' =>$_POST['nome']
+        'nome' =>$_POST['nome'],
         'saldoInicial' =>$_POST['saldoInicial']
     );
     $categoria = new Categoria(DB::getInstance(), $dadosFormularioCategoria);
@@ -17,7 +17,7 @@ if (isset($_POST['salvar'])) {
 if (isset($_POST['editar'])) {
     $dadosFormularioCategoria = array(
         'idCategoria' =>$_POST['idCategoria'],
-        'nome' =>$_POST['nome']
+        'nome' =>$_POST['nome'],
         'saldoInicial' =>$_POST['saldoInicial']
     );
     $categoria = new Categoria(DB::getInstance(), $dadosFormularioCategoria);

@@ -12,7 +12,7 @@ if (isset($_POST['salvar'])) {
         'funcao' =>$_POST['funcao'],
         'telefone' =>$_POST['telefone'],
         'whatsapp' =>$_POST['whatsapp'],
-        'senha' =>$_POST['senha'],
+        'senha' =>md5($_POST['senha']),
         'email' =>$_POST['email']
     );
     $funcionario = new Funcionario(DB::getInstance(), $dadosFormularioFuncionario);

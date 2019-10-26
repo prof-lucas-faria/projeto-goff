@@ -1,11 +1,14 @@
 <?php
 require_once '../controller/DB.php';
 require_once '../model/Caixa.php';
+require_once '../model/Funcionario.php';
 
 if (isset($_POST['salvar'])) {
 
     $dadosFormularioCaixa = array(
-        'nome' =>$_POST['nome']
+        'nome' =>$_POST['nome'],
+        'idFuncionario' =>$_POST['idFuncionario'],
+        'saldoInicial' =>$_POST['saldoInicial']
     );
     $caixa = new Caixa(DB::getInstance(), $dadosFormularioCaixa);
     if($caixa->inserir()){
@@ -15,19 +18,7 @@ if (isset($_POST['salvar'])) {
     }
 }
 
-if (isset($_POST['editar'])) {
-
-    $dadosFormularioCaixa = array(
-        'idCaixa' =>$_POST['idCaixa'],
-        'nome' =>$_POST['nome']
-    );
-    $caixa = new Caixa(DB::getInstance(), $dadosFormularioCaixa);
-    if($caixa->editar()){
-        header("Location: ../view/cadastroCaixa.php");
-    }else{
-        echo "ERRO AO EDITAR";
-    }
-}
+//////////// CAIXA NÃO PODE SER EDITADO ////////////////
 
 if(isset($_POST['excluir'])){
     $caixa = new Caixa(DB::getInstance(), array("idCaixa" => $_POST['idCaixa']));
@@ -43,6 +34,11 @@ if(isset($_POST['cancelar'])){
 function listaCaixas() {
     $caixa = new Caixa(DB::getInstance(), null);
     return $caixa->listar();
+}
+
+function listaFuncionarios() {
+    $funcionario = new Funcionario(DB::getInstance(), null);
+    return $funcionario->listar();
 }
 
 ?>

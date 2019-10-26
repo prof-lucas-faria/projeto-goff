@@ -67,7 +67,7 @@ class Produto{
     public function editar() {
         try {
 
-            $sql = "UPDATE produtos SET nome = ?, idCategoria = ?, foto = ?, precoCusto = ?, precoVenda = ?, status = ? where idProduto = ?";
+            $sql = "UPDATE produtos SET nome = ?, idCategoria = ?, foto = ?, precoCusto = ?, precoVenda = ? WHERE idProduto = ?";
 
             $stmt = $this->conexao->prepare($sql);
             $stmt->bindValue(1, $this->produtos['nome']);
@@ -75,9 +75,7 @@ class Produto{
             $stmt->bindValue(3, $this->produtos['foto']);
             $stmt->bindValue(4, $this->produtos['precoCusto']);
             $stmt->bindValue(5, $this->produtos['precoVenda']);
-            $stmt->bindValue(6, $this->produtos['status']);
-            $stmt->bindValue(7, $this->produtos['idProduto']);
-
+            $stmt->bindValue(6, $this->produtos['idProduto']);
 
             return $stmt->execute();
 
