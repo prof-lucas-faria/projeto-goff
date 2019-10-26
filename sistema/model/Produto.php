@@ -63,7 +63,6 @@ class Produto{
         }
     }
 
-
     public function editar() {
         try {
 
@@ -84,12 +83,12 @@ class Produto{
         }
     }
 
-        public function deletar() {
+    public function deletar() {
 
         try {
+            
             $sql = "UPDATE produtos SET status = ? WHERE idProduto = ?";
             $status = 0;
-
             $stmt = $this->conexao->prepare($sql);
             $stmt->bindValue(1, $status);
             $stmt->bindValue(2, $this->produtos['idProduto']);
@@ -98,6 +97,18 @@ class Produto{
             echo $e->getMessage();
         }
 
+    }
+
+    public function listarPorId() {
+        try {
+            $sql = 'SELECT * FROM produtos WHERE idProduto = ?';
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $this->produtos['idProduto']);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     }
 }
 ?>

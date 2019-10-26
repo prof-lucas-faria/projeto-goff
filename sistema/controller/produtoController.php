@@ -50,10 +50,6 @@ if (isset($_POST['editar'])) {
             'precoVenda' => $_POST['precoVenda'],
         );
     }
-
-    print_r($dadosFormularioProduto);
-
-
     $produto = new Produto(DB::getInstance(), $dadosFormularioProduto);
     if($produto->editar()){
        header("Location: ../view/cadastroProduto.php");
@@ -65,8 +61,22 @@ if (isset($_POST['editar'])) {
 if(isset($_POST['excluir'])){
 
     $produto = new Produto(DB::getInstance(), array("idProduto" => $_POST['idProduto']));
+    $dados['dados'] = $produto->listarPorId();
+
+    $diretorioAtual = '../assets/img/produtos/';
+
+    $novoDiretorio = '../assets/img/produtos/excluidos/';
+
+    $atual = $diretorioAtual.$dados['dados'][0]->foto;
+
+    $novo = $novoDiretorio.$dados['dados'][0]->foto;
+    
+    rename($atual, $novo);
+
     if($produto->deletar()){
         header("Location: ../view/cadastroProduto.php");
+    } else{
+        echo "ERRO AO EXCLUIR";
     }
 }
 
@@ -78,6 +88,7 @@ function listaProdutos() {
     $produto = new Produto(DB::getInstance(), null);
     return $produto->listar();
 }
+
 
 function listaCategorias() {
     $categoria = new Categoria(DB::getInstance(), null);
