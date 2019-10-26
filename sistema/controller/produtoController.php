@@ -44,7 +44,6 @@ if (isset($_POST['editar'])) {
 
 if(isset($_POST['excluir'])){
 
-
     $produto = new Produto(DB::getInstance(), array("idProduto" => $_POST['idProduto']));
     if($produto->deletar()){
         header("Location: ../view/cadastroProdutos.php");
