@@ -6,7 +6,6 @@ require_once '../model/Categoria.php';
 if (isset($_POST['salvar'])) {
 
     $nomeFoto = $_FILES['foto']['name'];
-
     $dadosFormularioProduto = array(
         'nome' => $_POST['nome'],
         'idCategoria' => $_POST['idCategoria'],
@@ -15,13 +14,10 @@ if (isset($_POST['salvar'])) {
         'precoVenda' => $_POST['precoVenda'],
     );
 
-    print_r($dadosFormularioProduto['foto']);
-
     $diretorio = '../assets/img/produtos/';
     move_uploaded_file($_FILES['foto']['tmp_name'], $diretorio.$nomeFoto);
 
     $produto = new Produto(DB::getInstance(), $dadosFormularioProduto);
-
     if($produto->inserir()){
         header("Location: ../view/cadastroProduto.php");
     }else{
@@ -29,7 +25,8 @@ if (isset($_POST['salvar'])) {
     }
 }
 
-if (isset($_POST['editar'])) {
+//////////////////// FALTA EDITAR A IMAGEM ////////////////////////////
+if (isset($_POST['editar'])) { 
 
     if($_POST['novaFoto'] != ""){
         $dadosFormularioProduto = array(

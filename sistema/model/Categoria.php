@@ -16,9 +16,11 @@ class Categoria{
     }
     public function inserir() {
         try {
-            $sql = 'INSERT INTO categorias (nome) VALUES (?)';    
+            $sql = 'INSERT INTO categorias (nome, status) VALUES (?,?)';    
+            $status = 1;
             $stmt = $this->conexao->prepare($sql);
             $stmt->bindValue(1, $this->categoria['nome']);
+            $stmt->bindValue(2, $status);
             return $stmt->execute();
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -26,7 +28,7 @@ class Categoria{
     }
     public function listar() {
         try {
-            $sql = 'SELECT * FROM categorias';
+            $sql = 'SELECT * FROM categorias WHERE status > 0';
             $stmt = $this->conexao->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -38,8 +40,8 @@ class Categoria{
         try {
             $sql = "UPDATE categorias SET nome = ? WHERE idCategoria = ?";
             $stmt = $this->conexao->prepare($sql);
-            $stmt->bindValue(1, $this->mesa['nome']);
-            $stmt->bindValue(2, $this->mesa['idCategoria']);            
+            $stmt->bindValue(1, $this->categoria['nome']);
+            $stmt->bindValue(2, $this->categoria['idCategoria']);            
             return $stmt->execute();
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -48,9 +50,11 @@ class Categoria{
     
     public function deletar() {
         try {
-            $sql = 'DELETE FROM categorias WHERE idCategoria = ?';
+            $sql = 'UPDATE categorias SET status = ? WHERE idCategoria = ?';
+            $status = 0;
             $stmt = $this->conexao->prepare($sql);
-            $stmt->bindValue(1, $this->categoria['idCategoria']);
+            $stmt->bindValue(1, $status);
+            $stmt->bindValue(2, $this->categoria['idCategoria']);
             return $stmt->execute();
         } catch (PDOException $e) {
             echo $e->getMessage();

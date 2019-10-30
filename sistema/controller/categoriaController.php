@@ -4,8 +4,7 @@ require_once '../model/Categoria.php';
 
 if (isset($_POST['salvar'])) {
     $dadosFormularioCategoria = array(
-        'nome' =>$_POST['nome'],
-        'saldoInicial' =>$_POST['saldoInicial']
+        'nome' =>$_POST['nome']
     );
     $categoria = new Categoria(DB::getInstance(), $dadosFormularioCategoria);
     if($categoria->inserir()){
@@ -17,9 +16,9 @@ if (isset($_POST['salvar'])) {
 if (isset($_POST['editar'])) {
     $dadosFormularioCategoria = array(
         'idCategoria' =>$_POST['idCategoria'],
-        'nome' =>$_POST['nome'],
-        'saldoInicial' =>$_POST['saldoInicial']
+        'nome' =>$_POST['nome']
     );
+
     $categoria = new Categoria(DB::getInstance(), $dadosFormularioCategoria);
     if($categoria->editar()){
         header("Location: ../view/cadastroCategoria.php");
@@ -29,7 +28,7 @@ if (isset($_POST['editar'])) {
 }
 if(isset($_POST['excluir'])){
     $categoria = new Categoria(DB::getInstance(), array("idCategoria" => $_POST['idCategoria']));
-    if($mesa->deletar()){
+    if($categoria->deletar()){
         header("Location: ../view/cadastroCategoria.php");
     }
 }

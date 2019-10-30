@@ -4,10 +4,9 @@
 	<meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title>SISTEMA GERENTE</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <?php require_once '../controller/produtoController.php';?>
+    <?php require_once '../controller/pedidoController.php';?>
     <!-- FORMULÁRIO PARA EDITAR DADOS -->
     <?php if(isset($_GET['editar_registro'])){
         foreach (listaProdutos() as $produtos){
@@ -83,31 +82,20 @@
     } else { ?>
     <!-- FORMULÁRIO PARA INSERIR DADOS -->
     <div>
-    	<h2>Cadastro Produtos</h2>
+    	<h2>Lançamento Pedidos</h2>
         <div>
-            <form name="cadastroProduto" method="POST" action="../controller/produtoController.php" enctype="multipart/form-data">
+            <form name="cadastroPedido" method="POST" action="../controller/pedidoController.php" >
             <div>
-                <label>Nome: </label>
-                <input type="text" id="nome" name="nome" autofocus>
-            </div>
-
-            <div>
-                <label>Categoria:</label>
-                <select id="idCategoria" name="idCategoria">
-                    <?php foreach (listaCategorias() as $categorias){?>
+                <label>Mesa:</label>
+                <select id="idMesa" name="idMesa">
+                    <?php foreach (listaMesas() as $mesas){?>
                     <option value="">--Selecione--</option>
-                    <option id="<?= $categorias->idCategoria; ?>" value="<?= $categorias->idCategoria; ?>"><?= $categorias->nome;?></option>
+                    <option id="<?= $mesas->idMesa; ?>" value="<?= $mesas->idMesa; ?>"><?= $mesas->nome;?></option>
                     <?php }?>
                 </select>
             </div>
             <div>
-                <label>Foto: </label>
-                <input type="file" id="foto" name="foto">
-            </div>
-
-            <div>
-                <label>Preço Custo: </label>
-                <input type="text" id="precoCusto" name="precoCusto">
+                <input type="hidden" id="idProduto" name="idProduto">
             </div>
             <div>
                 <label>Preço Venda: </label>
@@ -160,15 +148,4 @@
     </div>
     <?php }?>    
 </body>
-<script type="text/javascript">
- 
-    function ocultar() {
-        if(document.getElementById("novaFoto").value == ""){
-            document.getElementById("foto").style.display = "block";    
-        } else {
-            document.getElementById("foto").style.display = "none"; 
-        }
-        
-    }
-</script>
 </html>

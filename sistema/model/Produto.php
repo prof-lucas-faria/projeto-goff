@@ -1,4 +1,5 @@
 <?php 
+
 require_once '../controller/DB.php';
 
 class Produto{
@@ -110,5 +111,6 @@ class Produto{
             echo $e->getMessage();
         }
     }
+
 }
 ?>

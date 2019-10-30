@@ -1,0 +1,54 @@
+/*
+* LINKS IMPORTANTES
+* https://www.youtube.com/watch?v=x-4z_u8LcGc - GRID
+*/
+
+html,
+body {
+  padding: 0;
+  margin: 5px;
+  font-family: Verdana, sans-serif;
+}
+
+
+.header{
+
+	width: 1126px;
+    height: 96px;
+
+}
+
+.menu{
+
+	width: 314px;
+    height: 990px;
+
+}
+
+.footer{
+
+	width: 1126px;
+    height: 50px;
+
+}
+
+.botao_principal{
+
+	width: 145px;
+    height: 35px;
+
+}
+
+.botao_acao{
+
+	width: 60px;
+    height: 30px;
+
+}
+
+.relatorio{
+
+	width: 1090px;
+
+}
+
