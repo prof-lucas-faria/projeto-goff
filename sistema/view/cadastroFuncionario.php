@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title>SISTEMA GERENTE</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
 </head>
 <body>
     <?php require_once '../controller/funcionarioController.php';?>
@@ -12,6 +13,9 @@
         foreach (listaFuncionarios() as $funcionarios){
             if($funcionarios->idFuncionario == $_GET['editar_registro']){ ?>
     <h2>Editar Cadastro Funcionários</h2>
+    <div>
+        <?php include_once 'menu_lateral.php';  ?>
+    </div>
     <div>
         <form name="editarFuncionario" method="POST" action="../controller/funcionarioController.php">
             <div>

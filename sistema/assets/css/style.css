@@ -2,53 +2,252 @@
 * LINKS IMPORTANTES
 * https://www.youtube.com/watch?v=x-4z_u8LcGc - GRID
 */
+* { margin: 0; padding: 0; }
 
-html,
 body {
   padding: 0;
-  margin: 5px;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
   font-family: Verdana, sans-serif;
+  position: absolute;
 }
 
 
+
 .header{
+  background: #1C7BA2;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: auto auto;
+}
 
-	width: 1126px;
-    height: 96px;
+.usuario{
+  color: #FEFEFE;
+  text-align: right;
+  height: 75px;
+  line-height: 75px;
+  vertical-align: middle;
+  margin-right: 15px;
+  display: inline-block;
+}
 
+.titulo{
+  color: #FEFEFE;
+  height: 75px;
+  text-align: left;
+  line-height: 75px;
+  vertical-align: middle;
+  margin-left: 15px;
+  display: inline-block;
+}
+
+.container{
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 320px auto;
+  grid-template-rows: minmax(674px, auto);
 }
 
 .menu{
 
-	width: 314px;
-    height: 990px;
+  background: #1C7BA2;
+  display: inline-block;
+}
 
+.form{
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+.form_group{
+  padding-top: 2em;
 }
 
 .footer{
-
-	width: 1126px;
-    height: 50px;
-
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 320px auto;
 }
 
-.botao_principal{
+.footer_col1{
+  height: 40px;
+  background: #1C7BA2;
+  display: inline-block;
+}
 
+.footer_col2{
+  height: 40px;
+  display: inline-block;
+}
+
+.footer_col2 h6{
+  margin-left: 10px;
+  line-height: 40px;
+  vertical-align: middle;  
+}
+
+.botao{
+  padding-bottom: 0.5em;
+}
+
+.botao_salvar, .botao_limpar, select, label.checkbox {
+    cursor: pointer;
+}
+
+.botao_salvar{
+  font-size: 1em;
+  font-weight:bold;
+  background: #00AFEF;
+  border: 0;
+  color: #FFF;
 	width: 145px;
-    height: 35px;
+  height: 35px;
+}
 
+.botao_salvar:hover {
+  background: #42C3F1;
+}
+
+.botao_limpar{
+  font-size: 1em;
+  font-weight:bold;
+  background: #ED3237;
+  border: 0;
+  color: #FFF;
+  width: 145px;
+  height: 35px;
+}
+
+.botao_limpar:hover {
+  background: #EF4C53;
 }
 
 .botao_acao{
-
 	width: 60px;
-    height: 30px;
+  height: 30px;
+}
+
+.nav { margin-top: 50px; padding: 0; }
+.nav li { list-style: none; background: #1C7BA2; width: 320px;}
+.nav li a { font-size: 19px; font-weight: bold; display: block; padding: 12px; text-decoration: none; color: #FEFEFE; }
+.nav li a:hover { background: black; }
+.nav li ul { display: none; }
+.nav li:hover ul { display: block; }
+.nav li:hover ul li { background: #333; }
+.nav li:hover ul li a { color: #ccc; }
+.nav li:hover ul li a:hover { background: #222; border-left: 4px solid #900; }
+
+
+fieldset {
+    border: 0;
+}
+
+body, input, select, textarea, button {
+    font-family: Verdana, sans-serif;
+    font-size: 1em;
+}
+
+.grupo:before, .grupo:after {
+    content: " ";
+    display: table;
+}
+
+.grupo:after {
+    clear: both;
+}
+
+.campo {
+    margin-bottom: 1em;
+}
+
+.campo label {
+    margin-bottom: 0.3em;
+    display: block;
+}
+
+fieldset.grupo .campo {
+    float:  left;
+    margin-right: 1em;
+}
+
+.col1{
+  width: 100%;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="url"],
+.campo input[type="tel"],
+.campo select,
+.campo textarea {
+    height: 2em;
+    border: 1px solid #00AFEF;
+    box-shadow: 2px 2px 2px #00AFEF;
+    display: block;
+    font-size: 1.25em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="url"],
+.campo input[type="tel"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.campo select option {
+    padding-right: 1em;
+}
+
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+    background: #E1F3FC;
+}
+
+.campo label.checkbox {
+    color: #000;
+    display: inline-block;
+    margin-right: 1em;
+}
+
+.titulo_form{
+  border-bottom: 0.2em solid #00AFEF;
+  padding-bottom: 0.5em;
+}
+
+.titulo_table{
+  padding-top: 3em;
+  text-align: center;
+  border-top: 0.2em solid #00AFEF;
+}
+
+.table{
+  padding-top: 1em;
+}
+
+table {
+  font-family: Verdana, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 
 }
 
-.relatorio{
-
-	width: 1090px;
-
+table td, table th {
+  border: 1px solid #00AFEF;
+  padding: 8px;
 }
 
+table tr:nth-child(even){background-color: #AFE2F9;}
+
+table tr:hover {background-color: #42C3F1;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #00AFEF;
+  color: white;
+}
