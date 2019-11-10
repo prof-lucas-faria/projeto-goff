@@ -1,7 +1,7 @@
 <nav>
     <ul class='nav'>        
         <!-- MENU COM SUBMENU -->
-        <li><a href="">Cadastros</a>
+        <li><a href="#">Cadastros</a>
             <ul>
                 <li><a href=""> Coordenador </a></li>
             </ul>

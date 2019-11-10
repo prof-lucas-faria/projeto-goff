@@ -1,7 +1,3 @@
-/*
-* LINKS IMPORTANTES
-* https://www.youtube.com/watch?v=x-4z_u8LcGc - GRID
-*/
 * { margin: 0; padding: 0; }
 
 body {
@@ -91,11 +87,11 @@ body {
   padding-bottom: 0.5em;
 }
 
-.botao_salvar, .botao_limpar, select, label.checkbox {
+.botao_principal, .botao_secundario, .botao_acao_p, .botao_acao_s, select, label.checkbox {
     cursor: pointer;
 }
 
-.botao_salvar{
+.botao_principal{
   font-size: 1em;
   font-weight:bold;
   background: #00AFEF;
@@ -105,11 +101,11 @@ body {
   height: 35px;
 }
 
-.botao_salvar:hover {
+.botao_principal:hover {
   background: #42C3F1;
 }
 
-.botao_limpar{
+.botao_secundario{
   font-size: 1em;
   font-weight:bold;
   background: #ED3237;
@@ -119,23 +115,51 @@ body {
   height: 35px;
 }
 
-.botao_limpar:hover {
-  background: #EF4C53;
+.botao_secundario:hover {
+  background: #F16C72;
 }
 
 .botao_acao{
+  text-align: center;
+  width: 140px;
+}
+
+.botao_acao_p{
+  font-size: 0.75em;
+  font-weight:bold;
+  background: #00A859;
+  border: 0;
+  color: #FFF;
 	width: 60px;
-  height: 30px;
+  height: 25px;
+}
+
+.botao_acao_p:hover{
+  background: #59BD7E;
+}
+
+.botao_acao_s{
+  font-size: 0.75em;
+  font-weight:bold;
+  background: #ED3237;
+  border: 0;
+  color: #FFF;
+  width: 60px;
+  height: 25px;
+}
+
+.botao_acao_s:hover{
+  background: #F16C72;
 }
 
 .nav { margin-top: 50px; padding: 0; }
 .nav li { list-style: none; background: #1C7BA2; width: 320px;}
-.nav li a { font-size: 19px; font-weight: bold; display: block; padding: 12px; text-decoration: none; color: #FEFEFE; }
-.nav li a:hover { background: black; }
+.nav li a { font-size: 19px; font-weight: bold; display: block; padding: 10px 0 15px 40px; text-decoration: none; color: #FEFEFE; }
+.nav > li:hover > a{ background: black; }
 .nav li ul { display: none; }
 .nav li:hover ul { display: block; }
 .nav li:hover ul li { background: #333; }
-.nav li:hover ul li a { color: #ccc; }
+.nav li:hover ul li a { color: #FEFEFE; }
 .nav li:hover ul li a:hover { background: #222; border-left: 4px solid #900; }
 
 
@@ -222,6 +246,12 @@ fieldset.grupo .campo {
   padding-top: 3em;
   text-align: center;
   border-top: 0.2em solid #00AFEF;
+}
+
+.confirmacao_excluir{
+  padding-top: 1em;
+  
+  border-bottom: : 0.2em solid #00AFEF;
 }
 
 .table{
