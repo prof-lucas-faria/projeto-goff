@@ -9,8 +9,6 @@ body {
   position: absolute;
 }
 
-
-
 .header{
   background: #1C7BA2;
   width: 100vw;
@@ -195,8 +193,21 @@ fieldset.grupo .campo {
     margin-right: 1em;
 }
 
+.campo2col{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 49.5% 49.5%;
+  grid-column-gap: 1%;
+}
+
 .col1{
   width: 100%;
+}
+
+.col2{
+  display: inline-grid;
+  width: 100%;
+  margin-right: 20px;
 }
 
 .campo input[type="text"],
@@ -270,9 +281,9 @@ table td, table th {
   padding: 8px;
 }
 
-table tr:nth-child(even){background-color: #AFE2F9;}
+/*table tr:nth-child(even){background-color: #AFE2F9;}*/
 
-table tr:hover {background-color: #42C3F1;}
+table tr:hover {background-color: #AFE2F9;}
 
 table th {
   padding-top: 12px;
