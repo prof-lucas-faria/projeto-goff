@@ -17,7 +17,7 @@
         </li>
         <li><a href="#"> Relatórios </a>
             <ul>
-                <li><a href=""> Caixas </a></li>
+                <li><a href="relatorioCaixa.php"> Caixas </a></li>
                 <li><a href=""> Categorias </a></li>
                 <li><a href=""> Funcionários </a></li>
                 <li><a href=""> Mesas </a></li>
