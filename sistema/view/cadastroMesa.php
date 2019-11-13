@@ -57,7 +57,7 @@
 			            <div class="form_group">
 				            <div class="campo col_1">		
 				                <label>Nome: </label>
-				                <input class="col1" readonly disabled type="text" id="nome" name="nome" required="required" autofocus value="<?php echo $mesas->nome ?>">
+				                <input class="col1" readonly type="text" id="nome" name="nome" value="<?php echo $mesas->nome ?>">
 				            </div>
 			        	</div>
 			            <div class="botao">
@@ -83,8 +83,8 @@
 				                    <input class="col1" type="text" id="nome" name="nome" required="required" autofocus>
 				                </div>
 				                <div class="botao">
-				                    <input type="submit" id="salvar" name="salvar" value="Salvar" class="botao_principal">
-				                    <input type="reset" value="Limpar" class="botao_secundario"/>
+				                    <input class="botao_principal" type="submit" id="salvar" name="salvar" value="Salvar" >
+				                    <input class="botao_secundario" type="reset" value="Limpar" />
 				                </div>
 				        	</form>
 				        </div>
