@@ -21,25 +21,26 @@
                         if($caixas->idCaixa == $_GET['excluir_registro']){ ?>
                 <div>
                     <form name="excluircaixa" method="POST" action="../controller/caixaController.php">
-                        <div>
-                            <input type="hidden" id="idcaixa" name="idcaixa" value="<?php echo $caixas->idcaixa ?>">
-                            <h2>Excluir caixa</h2>
-                            <h4>Deseja mesmo excluir o caixa?</h4>
+                        <input type="hidden" id="idcaixa" name="idcaixa" value="<?php echo $caixas->idcaixa ?>">
+                        <div class="titulo_form">
+                            <h2>Excluir Caixa</h2>
                         </div>
-                        <div>
-                            <div>
+                        <div class="confirmacao_excluir">
+                            <h3>Deseja mesmo excluir o caixa?</h3>
+                        </div>
+                        <div class="form_group">
+                            <div class="campo col_1">
                                 <label>Nome: </label>
-                                <input type="text" id="nome" name="nome" required="required" autofocus value="<?php echo $caixas->nome ?>">
+                                <input class="col1" readonly type="text" id="nome" name="nome" value="<?php echo $caixas->nome ?>">
                             </div>
-                            <div>
+                            <div class="campo col_1">
                                 <label>Funcionário: </label>
-                                <input type="text" id="nome" name="nome" required="required" value="<?php echo $caixas->idFuncionario ?>">
+                                <input class="col1" readonly type="text" id="nome" name="nome" value="<?php echo $caixas->idFuncionario ?>">
                             </div>
                         </div>
-                        
-                        <div>
-                            <input type="submit" id="excluir" name="excluir" value="Excluir">
-                            <input type="submit" id="cancelar" name="cancelar" value="Cancelar">
+                        <div class="botao">
+                            <input class="botao_principal" type="submit" id="excluir" name="excluir" value="Excluir">
+                            <input class="botao_secundario" type="submit" id="cancelar" name="cancelar" value="Cancelar">
                         </div>
                     </form>
                 </div>
