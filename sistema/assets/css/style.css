@@ -1,5 +1,9 @@
 * { margin: 0; padding: 0; }
 
+a{
+  text-decoration: none;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -54,6 +58,33 @@ body {
   display: inline-block;
 }
 
+.color_form{
+  background: #FF0000;
+}
+
+.color_itens{
+  background: #00BFFF;
+}
+
+.container_pdv{
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 320px 600px auto;
+  grid-template-rows: minmax(614px, auto);
+}
+
+.form_pdv{
+  padding: 20px 20px;
+  display: inline-block;
+}
+
+.itens{
+  padding-top: 20px;
+  padding-left: 0;
+  padding-right: 20px;
+  display: inline-block;
+}
+
 .form_group{
   padding-top: 2em;
 }
@@ -85,8 +116,22 @@ body {
   padding-bottom: 0.5em;
 }
 
-.botao_principal, .botao_secundario, .botao_acao_p, .botao_acao_s, select, label.checkbox {
+.botao_verde, .botao_principal, .botao_secundario, .botao_acao_p, .botao_acao_s, select, label.checkbox {
     cursor: pointer;
+}
+
+.botao_verde{
+  font-size: 1em;
+  font-weight:bold;
+  background: #00A859;
+  border: 0;
+  color: #FFF;
+  width: 145px;
+  height: 35px;
+}
+
+.botao_verde:hover {
+  background: #59BD7E;
 }
 
 .botao_principal{
@@ -170,15 +215,6 @@ body, input, select, textarea, button {
     font-size: 1em;
 }
 
-.grupo:before, .grupo:after {
-    content: " ";
-    display: table;
-}
-
-.grupo:after {
-    clear: both;
-}
-
 .campo {
     margin-bottom: 1em;
 }
@@ -200,6 +236,48 @@ fieldset.grupo .campo {
   grid-column-gap: 1%;
 }
 
+.campo2col_fu{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 74.5% 24.5%;
+  grid-column-gap: 1%;
+}
+
+.campo2col_fu2{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 24.5% 74.5%;
+  grid-column-gap: 1%;
+}
+
+.campo2col_pr{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 64.5% 34.5%;
+  grid-column-gap: 1%;
+}
+
+.campo3col{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 24% 24%;
+  grid-column-gap: 1%;
+}
+
+.campo4col{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 24.25% 24.25% 24.25% 24.25%;
+  grid-column-gap: 1%;
+}
+
+.campo4col_ep{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 10% 47% 20% 20%;
+  grid-column-gap: 1%;
+}
+
 .col1{
   width: 100%;
 }
@@ -210,10 +288,24 @@ fieldset.grupo .campo {
   margin-right: 20px;
 }
 
+.col3{
+  display: inline-grid;
+  width: 100%;
+  margin-right: 20px;
+}
+
+.col4{
+  display: inline-grid;
+  width: 100%;
+  margin-right: 20px;
+}
+
 .campo input[type="text"],
 .campo input[type="email"],
 .campo input[type="url"],
 .campo input[type="tel"],
+.campo input[type="file"],
+.campo input[type="password"],
 .campo select,
 .campo textarea {
     height: 2em;
@@ -228,6 +320,8 @@ fieldset.grupo .campo {
 .campo input[type="text"],
 .campo input[type="email"],
 .campo input[type="url"],
+.campo input[type="file"],
+.campo input[type="password"],
 .campo input[type="tel"] {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -261,7 +355,6 @@ fieldset.grupo .campo {
 
 .confirmacao_excluir{
   padding-top: 1em;
-  
   border-bottom: : 0.2em solid #00AFEF;
 }
 
@@ -291,4 +384,69 @@ table th {
   text-align: center;
   background-color: #00AFEF;
   color: white;
+}
+
+#file{
+  color: white;
+}
+
+.produto{
+  display: block;
+}
+
+.item_pedido{
+  display: table-cell;
+  float: left;
+  margin-right: 5px;
+}
+
+.foto{
+  border: 1px solid #00AFEF;
+  padding: 5px;
+  width: 5.625em;
+  height: 5.625em;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.descricao{
+  border: 1px solid #00AFEF;
+  padding: 5px;
+  width: 5.625em;
+  height: 1em;
+  text-align: center;
+  vertical-align: middle;
+
+}
+
+.descricao p{
+  font-family: Verdana, sans-serif;
+  font-size: 10px;  
+}
+
+.form_pedidos{
+  width: 100%;
+  height: 300px;
+  background: #DCF1FC;
+}
+
+.form_pdv .botao_verde, .botao_principal, .botao_secundario{
+  width: 135.6px;
+  height: 35px; 
+}
+
+.total_ped{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 48.5% 48.5%;
+  grid-column-gap: 2%;
+  background: #DCF1FC
+}
+
+.total_ped label, input[type="text"]{
+  font-size: 14px;  
+  font-weight: bold;
 }
