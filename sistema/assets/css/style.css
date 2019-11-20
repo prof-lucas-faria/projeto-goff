@@ -437,16 +437,36 @@ table th {
 }
 
 .total_ped{
-  margin-top: 5px;
-  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   width: 100%;
   display: grid;
-  grid-template-columns: 48.5% 48.5%;
-  grid-column-gap: 2%;
-  background: #DCF1FC
+  grid-template-columns: 49.5% 49.5%;
+  grid-column-gap: 1%;
 }
 
-.total_ped label, input[type="text"]{
+.total_ped label{
   font-size: 14px;  
   font-weight: bold;
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+  background: #DCF1FC;
+  margin-left: 10px;
+}
+
+.total_ped input[type="text"]{
+  font-size: 18px;  
+  font-weight: bold;
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+  background: #DCF1FC;
+  text-align: right;
+  
+}
+
+.qtd_itens, .vl_total{
+  background: #DCF1FC;
+  margin-right: 10px;
 }

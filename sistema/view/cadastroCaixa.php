@@ -61,7 +61,7 @@
                                     <input class="col1" type="text" id="nome" name="nome" required="required" autofocus>
                                 </div>
                                 <div class="campo campo2col">
-                                    <div class="campo col_2">
+                                    <div class="campo col2">
                                         <label>Funcionário responsável:</label>
                                         <select class="col2" id="idFuncionario" name="idFuncionario">
                                             <?php foreach (listaFuncionarios() as $funcionarios){?>
@@ -70,7 +70,7 @@
                                             <?php }?>
                                         </select>
                                     </div>
-                                    <div class="campo col_2">
+                                    <div class="campo col2">
                                         <label>Caixa Inicial: </label>
                                         <input class="col2" type="text" id="saldoInicial" name="saldoInicial" required="required">
                                     </div>

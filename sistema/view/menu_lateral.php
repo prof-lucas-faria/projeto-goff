@@ -12,7 +12,7 @@
         </li>
         <li><a href="#"> Vendas </a>
             <ul>
-                <li><a href="cadastroPedido.php"> PDV </a></li>
+                <li><a href="PDV.php"> PDV </a></li>
             </ul>
         </li>
         <li><a href="#"> Relatórios </a>
@@ -20,7 +20,7 @@
                 <li><a href="relatorioCaixa.php"> Caixas </a></li>
                 <li><a href=""> Categorias </a></li>
                 <li><a href=""> Funcionários </a></li>
-                <li><a href=""> Mesas </a></li>
+                <li><a href="relatorioMesa.php"> Mesas </a></li>
                 <li><a href=""> Produtos </a></li>
                 <li><a href=""> Vendas </a></li>
             </ul>
