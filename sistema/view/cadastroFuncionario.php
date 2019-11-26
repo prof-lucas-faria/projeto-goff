@@ -54,10 +54,10 @@
                                 <select class="col4" id="funcao" name="funcao">
                                     <option selected="selected" value="<?php echo $funcionarios->funcao ?>"><?php echo $funcionarios->funcao ?></option>
                                     <option value="">--Selecione--</option>
-                                    <option value="1">Administrador</option>
-                                    <option value="2">Atendende / Caixa</option>
-                                    <option value="3">Garçom</option>
-                                    <option value="4">Cozinheiro</option>
+                                    <option value="Administrador">Administrador</option>
+                                    <option value="Atendende / Caixa">Atendende / Caixa</option>
+                                    <option value="Garçom">Garçom</option>
+                                    <option value="Cozinheiro">Cozinheiro</option>
                                 </select>
                             </div>
                             <div class="campo col4">
@@ -152,10 +152,10 @@
                                         <label>Função:</label>
                                         <select class="col4" id="funcao" name="funcao">
                                             <option value="">--Selecione--</option>
-                                            <option value="1">Administrador</option>
-                                            <option value="2">Atendende / Caixa</option>
-                                            <option value="3">Garçom</option>
-                                            <option value="4">Cozinheiro</option>
+                                            <option value="Administrador">Administrador</option>
+                                            <option value="Atendende / Caixa">Atendende / Caixa</option>
+                                            <option value="Garçom">Garçom</option>
+                                            <option value="Cozinheiro">Cozinheiro</option>
                                         </select>
                                     </div>
                                     <div class="campo col4">

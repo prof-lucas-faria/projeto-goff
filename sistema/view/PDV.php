@@ -6,7 +6,6 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title> SISTEMA GERENTE - Controle Caixas </title>
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-    
 </head>
 <body>
     <div>

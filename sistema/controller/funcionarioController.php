@@ -2,6 +2,26 @@
 require_once '../controller/DB.php';
 require_once '../model/Funcionario.php';
 
+if(isset($_POST['login'])){
+    $formulario_login =  array(
+        'CPF' => $_POST['CPF'],
+        'senha'=> $_POST['senha']
+    );
+
+    $oLoginService = new Funcionario(DB::getInstance(),$formulario_login);
+    $dados = $oLoginService->login();
+    if ($dados != null){
+        session_start();
+        $_SESSION['dados_usuario'] = $dados;
+        header('Location: ../view/PDV.php');
+    } else{
+        //header('Location: ../index.php');
+        echo '<pre>';
+        print_r($formulario_login);
+        echo '</pre>';
+    }
+}
+
 if (isset($_POST['salvar'])) {
 
     $dadosFormularioFuncionario = array(

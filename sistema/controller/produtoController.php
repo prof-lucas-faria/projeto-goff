@@ -25,36 +25,6 @@ if (isset($_POST['salvar'])) {
     }
 }
 
-//////////////////// FALTA EDITAR A IMAGEM ////////////////////////////
-if (isset($_POST['editar'])) { 
-
-    if($_POST['novaFoto'] != ""){
-        $dadosFormularioProduto = array(
-            'idProduto' =>$_POST['idProduto'],
-            'nome' => $_POST['nome'],
-            'idCategoria' => $_POST['idCategoria'],
-            'foto' => $_POST['novaFoto'],
-            'precoCusto' => $_POST['precoCusto'],
-            'precoVenda' => $_POST['precoVenda'],
-        );
-    } else {
-        $dadosFormularioProduto = array(
-            'idProduto' =>$_POST['idProduto'],
-            'nome' => $_POST['nome'],
-            'idCategoria' => $_POST['idCategoria'],
-            'foto' => $_POST['foto'],
-            'precoCusto' => $_POST['precoCusto'],
-            'precoVenda' => $_POST['precoVenda'],
-        );
-    }
-    $produto = new Produto(DB::getInstance(), $dadosFormularioProduto);
-    if($produto->editar()){
-       header("Location: ../view/cadastroProduto.php");
-    }else{
-        echo "ERRO AO EDITAR";
-    }
-}
-
 if(isset($_POST['excluir'])){
 
     $produto = new Produto(DB::getInstance(), array("idProduto" => $_POST['idProduto']));

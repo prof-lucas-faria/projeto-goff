@@ -15,65 +15,9 @@
             </div>
             <div class="form">      
                 <?php require_once '../controller/produtoController.php';?>
-                <!-- FORMULÁRIO PARA EDITAR DADOS -->
-                <?php if(isset($_GET['editar_registro'])){
-                    foreach (listaProdutos() as $produtos){
-                        $caminho = "../assets/img/produtos/";
-                        $imagem = $caminho.$produtos->foto;
-                        if($produtos->idProduto == $_GET['editar_registro']){ ?>
-                <div class="titulo_form">
-                    <h2>Editar Cadastro Produtos</h2>
-                </div>
-                <div class="form_group">
-                    <form name="editarProduto" method="POST" action="../controller/ProdutoController.php">
-                        <input type="hidden" id="idProduto" name="idProduto" value="<?php echo $produtos->idProduto ?>">
-                        <div class="campo2col_pr">
-                            <div class="campo col2">
-                                <label>Nome: </label>
-                                <input class="col2" type="text" id="nome" name="nome" autofocus value="<?php echo $produtos->nome ?>">
-                            </div>
-                            <div class="campo col2">
-                                <label>Categoria:</label>
-                                <select class="col2" id="categoria" name="idCategoria">
-                                    <option selected="selected" value="<?php echo $produtos->idCategoria ?>"><?php echo $produtos->idCategoria ?></option>
-                                    <option value="">--Selecione--</option>
-                                    <?php foreach (listaCategorias() as $categorias){?>
-                                    <option id="<?= $categorias->idCategoria; ?>" value="<?= $categorias->idCategoria; ?>"><?= $categorias->nome;?></option>
-                                    <?php }?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="campo4col_ep">
-                            <div class="campo col4" id="foto">
-                                <label>Foto: </label>
-                                <?php echo "<img src='$imagem' width='50px' height='50px'/>";?>
-                            </div>
-                            <div class="campo col4">
-                                <label id="file">Foto: </label>
-                                <input type="hidden" name="foto" value="<?php echo $produtos->foto ?>">
-
-                                <input class="col4" type="file" id="novaFoto" name="novaFoto" onchange="ocultar()">   
-                            </div>
-                            <div class="campo col4">
-                                <label>Preço Custo: </label>
-                                <input class="col4" type="text" id="precoCusto" name="precoCusto" value="<?php echo $produtos->precoCusto ?>">
-                            </div>
-                            <div class="campo col4">
-                                <label>Preço Venda: </label>
-                                <input class="col4" type="text" id="precoVenda" name="precoVenda" value="<?php echo $produtos->precoVenda ?>">
-                            </div>
-                        </div>
-                        <div class="botao">
-                            <input class="botao_principal" type="submit" id="editar" name="editar" value="Editar">
-                            <input class="botao_secundario" type="submit" id="cancelar" name="cancelar" value="Cancelar">
-                        </div>
-                    </form>
-                </div>
-                <?php
-                        }
-                    }
+                <?php 
                 // EXIBIR A MENSAGEM DE CONFIRMAÇÃO DE EXCLUIR DADOS
-                } elseif (isset($_GET['excluir_registro'])) {
+                if (isset($_GET['excluir_registro'])) {
                     foreach (listaProdutos() as $produtos){
                         $caminho = "../assets/img/produtos/";
                         $imagem = $caminho.$produtos->foto;
@@ -168,7 +112,7 @@
                                     <th>Foto</th>
                                     <th>Preco Custo</th>
                                     <th>Preco Venda</th>
-                                    <th colspan="2" width="140">Ação</th>
+                                    <th width="70">Ação</th>
                                 </tr>
                                 <?php foreach (listaProdutos() as $produtos){?>
                                 <?php $caminho = "../assets/img/produtos/";
@@ -177,12 +121,11 @@
                                 <tr data-id="<?= $produtos->idProduto;?>">
                                     <td align="center"><?= $produtos->idProduto;?></td>
                                     <td><?= $produtos->nome;?></td>
-                                    <td><?= $produtos->idCategoria;?></td>
-                                    <td><?php echo "<img src='$imagem' width='60px' height='60px'/>";?></td>
-                                    <td align="right"><?= $produtos->precoCusto;?></td>
-                                    <td align="right"><?= $produtos->precoVenda;?></td>
-                                    <td class="botao_acao"><a href="cadastroProduto.php?editar_registro=<?php echo $produtos->idProduto; ?>"><button class="botao_acao_p">Editar</button></a>
-                                        <a href="cadastroProduto.php?excluir_registro=<?php echo $produtos->idProduto; ?>"><button class="botao_acao_s">Excluir</button></a>
+                                    <td><?= $produtos->categoria;?></td>
+                                    <td align="center"><?php echo "<img src='$imagem' width='60px' height='60px'/>";?></td>
+                                    <td align="right"><?= number_format($produtos->precoCusto,2,",",".");?></td>
+                                    <td align="right"><?= number_format($produtos->precoVenda,2,",",".");?></td>
+                                    <td align="center" width="70"><a href="cadastroProduto.php?excluir_registro=<?php echo $produtos->idProduto; ?>"><button class="botao_acao_s">Excluir</button></a>
                                     </td>
                                 </tr>
                                 <?php }?>

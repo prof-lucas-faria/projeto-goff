@@ -18,16 +18,17 @@
         <li><a href="#"> Relatórios </a>
             <ul>
                 <li><a href="relatorioCaixa.php"> Caixas </a></li>
-                <li><a href=""> Categorias </a></li>
-                <li><a href=""> Funcionários </a></li>
+                <li><a href="relatorioCategoria.php"> Categorias </a></li>
+                <li><a href="relatorioFuncionario.php"> Funcionários </a></li>
                 <li><a href="relatorioMesa.php"> Mesas </a></li>
-                <li><a href=""> Produtos </a></li>
-                <li><a href=""> Vendas </a></li>
+                <li><a href="relatorioPedido.php"> Pedidos </a></li>
+                <li><a href="relatorioProduto.php"> Produtos </a></li>
+                <li><a href="relatorioVenda.php"> Vendas </a></li>
             </ul>
         </li>
         <!-- MENU SIMPLES -->
         <li>
-            <a href=""> Sair </a>
+            <a href="../controller/logout.php"> Sair </a>
         </li>
     </ul>
 </nav>

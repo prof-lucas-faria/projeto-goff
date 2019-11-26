@@ -101,7 +101,7 @@
                                     <tr data-id="<?= $caixas->idCaixa;?>">
                                         <td><?= $caixas->idCaixa;?></td>
                                         <td><?= $caixas->nome;?></td>
-                                        <td><?= $caixas->idFuncionario;?></td>
+                                        <td><?= $caixas->funcionario;?></td>
                                         <td><?= $caixas->saldoInicial;?></td>
                                         <td width="70"><a href="cadastroCaixa.php?excluir_registro=<?php echo $caixas->idCaixa; ?>"><button class="botao_acao_s">Excluir</button></a></td>
                                     </tr>

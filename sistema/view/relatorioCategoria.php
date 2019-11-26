@@ -24,12 +24,12 @@
                         <div class="table">
                             <table>
                                 <tr>
-                                    <th>#</th>
+                                    <th>Cód</th>
                                     <th>Nome</th>
                                 </tr>
                                 <?php foreach (listaCategorias() as $Categorias){?>
-                                <tr data-id="<?= $Categorias->idcategoria;?>">
-                                    <td align="center"><?= $Categorias->idcategoria;?></td>
+                                <tr data-id="<?= $Categorias->idCategoria;?>">
+                                    <td align="center"><?= $Categorias->idCategoria;?></td>
                                     <td><?= $Categorias->nome;?></td>
                                 </tr>
                                 <?php }?>

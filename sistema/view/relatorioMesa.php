@@ -24,7 +24,7 @@
                         <div class="table">
                             <table>
                                 <tr>
-                                    <th>#</th>
+                                    <th>Cód</th>
                                     <th>Nome</th>
 				<tr>
                                 <?php foreach (listaMesas() as $mesas){?>

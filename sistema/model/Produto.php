@@ -55,7 +55,10 @@ class Produto{
 
     public function listar() {
         try {
-            $sql = 'SELECT * FROM produtos WHERE status > 0';
+            $sql = 'SELECT p.idProduto, p.nome, p.foto, p.precoCusto, p.precoVenda, c.nome as categoria
+                    FROM produtos p
+                    INNER JOIN categorias c ON p.idCategoria = c.idCategoria
+                    WHERE p.status > 0';
             $stmt = $this->conexao->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_OBJ);

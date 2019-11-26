@@ -32,7 +32,10 @@ class Caixa{
     }
     public function listar() {
         try {
-            $sql = 'SELECT * FROM caixas WHERE status > 0';
+            $sql = 'SELECT idCaixa, c.nome, f.nome as funcionario, saldoInicial
+                    FROM caixas c
+                    INNER JOIN funcionarios f ON c.idFuncionario = f.idFuncionario
+                    WHERE c.status > 0';
             $stmt = $this->conexao->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_OBJ);

@@ -1,4 +1,4 @@
-var tdsValores = document.querySelectorAll('.subTotal')
+var tdsValores = document.querySelectorAll('#subTotal')
 var total = 0
 for (var i = 0; i < tdsValores.length; i++) {
     var valor = parseFloat(tdsValores[i].textContent)
@@ -7,7 +7,16 @@ for (var i = 0; i < tdsValores.length; i++) {
 total = total.toLocaleString('pt-br', {minimumFractionDigits: 2});
 document.getElementById('total').value = total;
 
+var tdsQuant = document.querySelectorAll('#quant')
+var t_quant = 0
+for (var i = 0; i < tdsQuant.length; i++) {
+    var valor = parseInt(tdsQuant[i].textContent)
+    t_quant = t_quant + valor
+}
+document.getElementById('qtd_itens').value = t_quant;
 
+document.getElementById('v_qtd_itens').value = document.getElementById('qtd_itens').value
+document.getElementById('v_total').value = document.getElementById('total').value
 
 function ocultar() {
     if(document.getElementById("novaFoto").value == ""){
@@ -15,9 +24,17 @@ function ocultar() {
     } else {
         document.getElementById("foto").style.display = "none"; 
     }
-    
 }
 
+function mostrar_obs() {
+    document.getElementById("div_obs").style.display = "block";    
+}
+
+
+function enviar_form(){
+    document.getElementById("opcao").value = "sessao";
+    document.getElementById("cadastroPedido").submit();
+}
 
 
 /*

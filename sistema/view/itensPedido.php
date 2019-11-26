@@ -1,16 +1,5 @@
 <div>
 	<?php
-	if (!isset($_SESSION['itens'])) {
-		$_SESSION['itens'] = array();
-	}
-	if (isset($_GET['add']) && $_GET['add'] == "itens") {
-		$idProduto = $_GET['id'];
-		if (!isset($_SESSION['itens'][$idProduto])) {
-			$_SESSION['itens'][$idProduto] = 1;
-		}else {
-			$_SESSION['itens'][$idProduto] += 1;
-		}
-	}
     if (listaProdutos() != null) { 
         foreach (listaProdutos() as $produtos){
         	$caminho = "../assets/img/produtos/";
@@ -28,11 +17,6 @@
         <?php echo "</a>";?>
         <?php }?>
     <?php }?>
-    <?php 
-
-    //unset($_SESSION['itens']);
-
-    ?>
 </div>
 
 

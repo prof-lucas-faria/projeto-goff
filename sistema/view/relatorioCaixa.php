@@ -24,7 +24,7 @@
                         <div class="table">
                             <table>
                                 <tr>
-                                    <th>#</th>
+                                    <th>Cód</th>
                                     <th>Nome</th>
                                     <th>Funcionário Responsável</th>
                                     <th>Saldo Inicial</th>
@@ -33,7 +33,7 @@
                                 <tr data-id="<?= $caixas->idCaixa;?>">
                                     <td align="center"><?= $caixas->idCaixa;?></td>
                                     <td><?= $caixas->nome;?></td>
-                                    <td><?= $caixas->idFuncionario;?></td>
+                                    <td><?= $caixas->funcionario;?></td>
                                     <td align="right"><?= $caixas->saldoInicial;?></td>
                                 </tr>
                                 <?php }?>

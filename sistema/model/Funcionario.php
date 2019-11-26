@@ -96,5 +96,20 @@ class Funcionario{
             echo $e->getMessage();
         }
     }
+
+    function login(){
+        try {
+            $sql = "SELECT * FROM funcionarios WHERE CPF = ? AND senha = ?";
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $this->funcionario['CPF']);
+            $stmt->bindValue(2, md5($this->funcionario['senha']));
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ);
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            echo $e->getLine();
+        }
+    }
 }
 ?>
