@@ -15,9 +15,6 @@ for (var i = 0; i < tdsQuant.length; i++) {
 }
 document.getElementById('qtd_itens').value = t_quant;
 
-document.getElementById('v_qtd_itens').value = document.getElementById('qtd_itens').value
-document.getElementById('v_total').value = document.getElementById('total').value
-
 function ocultar() {
     if(document.getElementById("novaFoto").value == ""){
         document.getElementById("foto").style.display = "block";    
@@ -35,7 +32,6 @@ function enviar_form(){
     document.getElementById("opcao").value = "sessao";
     document.getElementById("cadastroPedido").submit();
 }
-
 
 /*
 var divh = document.getElementById('mydiv').offsetWidth;

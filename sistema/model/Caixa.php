@@ -5,6 +5,7 @@ class Caixa{
     private $nome;
     private $funcionario;
     private $saldoInicial;
+    private $status;
 
     public function __get($atributo) {
         return $this->$atributo;

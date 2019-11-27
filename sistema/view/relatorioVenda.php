@@ -28,8 +28,9 @@
                                     <th>Data</th>
                                     <th>Funcionário</th>
                                     <th>Mesa</th>
-                                    <th>Qtd Itens</th>
-                                    <th>Total Pedido</th>
+                                    <th>Vl Pedido</th>
+                                    <th>Desconto</th>
+                                    <th>Vl Recebido</th>
                                 </tr>
                                 <?php foreach (listaVendas() as $pedidos){?>
                                 <tr data-id="<?= $pedidos->idPedido;?>">
@@ -37,14 +38,15 @@
                                     <td align="center"><?= date('d/m/Y', strtotime($pedidos->data));?></td>
                                     <td><?= $pedidos->funcionario;?></td>
                                     <td><?= $pedidos->mesa;?></td>
-                                    <td><?= $pedidos->qtdItens;?></td>
-                                    <td id="subTotal" align="right"><?= number_format($pedidos->totalPedido,2,",",".");?></td>
+                                    <td align="right" width="100"><?= number_format($pedidos->totalPedido,2,",",".");?></td>
+                                    <td align="right" width="100"><?= number_format($pedidos->desconto,2,",",".");?></td>
+                                    <td id="subTotal" align="right" width="100"><?= number_format($pedidos->valorRecebido,2,",",".");?></td>
                                 </tr>
                                 <?php }?>
                             </table>
                             <div class="total_ped vl_total">
                                 <div>
-                                    <label>Total geral</label>
+                                    <h3 class="texto">Total das vendas</h3>
                                 </div>
                                 <div class="vl_total">
                                     <input class="col1" readonly type="text" id="total" name="total">

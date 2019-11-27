@@ -279,11 +279,24 @@ fieldset.grupo .campo {
   grid-column-gap: 1%;
 }
 
+.campocol3{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1%;
+}
+
 .campo4col{
   width: 100%;
   display: grid;
   grid-template-columns: 24.25% 24.25% 24.25% 24.25%;
   grid-column-gap: 1%;
+}
+
+.campocol4{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .campo4col_ep{
@@ -341,6 +354,11 @@ textarea {
     font-size: 1.25em;
     padding-left: 0.5em;
     padding-right: 0.5em;
+}
+
+input[type="text"]:disabled{
+    background:white;
+    color:black;
 }
 
 .campo input[type="text"],
@@ -406,8 +424,8 @@ table td, table th {
 table tr:hover {background-color: #AFE2F9;}
 
 table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   text-align: center;
   background-color: #00AFEF;
   color: white;
@@ -490,7 +508,6 @@ table th {
   outline: 0;
   background: #DCF1FC;
   text-align: right;
-  
 }
 
 .qtd_itens, .vl_total{
@@ -513,7 +530,7 @@ table th {
   background: #ADD8E6;
   flex-direction: row;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 .box {
   width: 400px;
@@ -523,4 +540,25 @@ table th {
   background: white;
   display: block;
   padding: 20px;
+}
+
+#campocol4{
+  background: #00AFEF;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 2px 2px 2px #00AFEF;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#label{
+  color: white;
+    font-size: 14px;
+  font-style: bold;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.texto{
+  margin-left: 20px;
 }

@@ -50,7 +50,14 @@
                                 </tr>
                                 <?php }?>
                             </table>
-
+                            <div class="total_ped vl_total">
+                                <div>
+                                    <h3 class="texto">Total das vendas</h3>
+                                </div>
+                                <div class="vl_total">
+                                    <input class="col1" readonly type="text" id="total" name="total">
+                                </div>
+                            </div>
                         </div>
                         <?php }?>
                     </div>

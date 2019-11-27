@@ -143,7 +143,7 @@
                         <td><?= $pedidos->mesa;?></td>
                         <td><?= $pedidos->qtdItens;?></td>
                         <td align="right"><?= number_format($pedidos->totalPedido,2,",",".");?></td>
-                        <td class="botao_acao"><a href="../controller/pedidoController.php?finalizar=<?php echo $pedidos->idPedido; ?>"><button class="botao_acao_p">Finalizar</button></a>
+                        <td class="botao_acao"><a href="finalizarPedido.php?pedido=<?php echo $pedidos->idPedido; ?>"><button class="botao_acao_p">Finalizar</button></a>
                             <a href="../controller/pedidoController.php?excluir=<?php echo $pedidos->idPedido; ?>"><button class="botao_acao_s">Excluir</button></a>
                         </td>
                     </tr>

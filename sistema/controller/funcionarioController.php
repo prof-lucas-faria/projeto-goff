@@ -15,7 +15,7 @@ if(isset($_POST['login'])){
         $_SESSION['dados_usuario'] = $dados;
         header('Location: ../view/PDV.php');
     } else{
-        //header('Location: ../index.php');
+        header('Location: ../index.php');
         echo '<pre>';
         print_r($formulario_login);
         echo '</pre>';

@@ -58,10 +58,21 @@ if(isset($_GET['excluir'])){
     }
 }
 
-if(isset($_GET['finalizar'])){
-    $pedido = new Pedido(DB::getInstance(), array("idPedido" => $_GET['finalizar']));
-    if($pedido->finalizar()){
-        header("Location: ../view/PDV.php");
+if(isset($_POST['finalizar'])){
+
+    $totalPedido = $_POST['totalPedido'];
+    $desconto = $_POST['desconto'];
+    $valorRecebido = $totalPedido - $desconto;
+
+    $dadosFinalizarPedido = array(
+        'idPedido' => $_POST['idPedido'],
+        'desconto' => $_POST['desconto'],
+        'tipoRecebimento' => $_POST['tipoRecebimento'],
+        'valorRecebido' => $valorRecebido
+    );
+    $finalizar = new Pedido(DB::getInstance(), $dadosFinalizarPedido);
+    if($finalizar->finalizar()){
+      header("Location: ../view/PDV.php");
     }
 }
 

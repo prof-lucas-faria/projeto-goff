@@ -56,7 +56,6 @@
                                     <option value="">--Selecione--</option>
                                     <option value="Administrador">Administrador</option>
                                     <option value="Atendende / Caixa">Atendende / Caixa</option>
-                                    <option value="Garçom">Garçom</option>
                                     <option value="Cozinheiro">Cozinheiro</option>
                                 </select>
                             </div>

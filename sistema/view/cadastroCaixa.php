@@ -35,7 +35,7 @@
                             </div>
                             <div class="campo col_1">
                                 <label>Funcionário: </label>
-                                <input class="col1" readonly type="text" id="nome" name="nome" value="<?php echo $caixas->idFuncionario ?>">
+                                <input class="col1" readonly type="text" id="nome" name="nome" value="<?php echo $caixas->funcionario ?>">
                             </div>
                         </div>
                         <div class="botao">
@@ -64,8 +64,8 @@
                                     <div class="campo col2">
                                         <label>Funcionário responsável:</label>
                                         <select class="col2" id="idFuncionario" name="idFuncionario">
-                                            <?php foreach (listaFuncionarios() as $funcionarios){?>
                                             <option value="">--Selecione--</option>
+                                            <?php foreach (listaFuncionarios() as $funcionarios){?>
                                             <option id="<?= $funcionarios->idFuncionario; ?>" value="<?= $funcionarios->idFuncionario; ?>"><?= $funcionarios->nome;?></option>
                                             <?php }?>
                                         </select>

@@ -95,8 +95,7 @@ class Pedido{
     public function relatorio() {
         try {
             $sql = 'SELECT idPedido, data, p.idFuncionario, f.nome as funcionario, p.idMesa, m.nome as mesa,
-                    observacao, qtdItens, totalPedido, desconto, tipoRecebimento, valorRecebido, situacao, 
-                    IF(situacao=1,"Aberto","Finalizado") as n_situacao
+                    observacao, qtdItens, totalPedido, desconto, IF(tipoRecebimento=1,"Dinheiro",IF(tipoRecebimento=2,"Cartão Débito",IF(tipoRecebimento=3,"Cartão Crédito",""))) as tipoRecebimento, valorRecebido
                     FROM pedidos p
                     INNER JOIN funcionarios f ON p.idFuncionario = f.idFuncionario
                     INNER JOIN mesas m ON p.idMesa = m.idMesa
@@ -127,11 +126,15 @@ class Pedido{
     public function finalizar() {
 
         try {
-            $sql = "UPDATE pedidos SET situacao = ? WHERE idPedido = ?";
+            $sql = "UPDATE pedidos SET desconto = ?, tipoRecebimento = ?, valorRecebido = ?, situacao = ? 
+            WHERE idPedido = ?";
             $situacao = 2;
             $stmt = $this->conexao->prepare($sql);
-            $stmt->bindValue(1, $situacao);
-            $stmt->bindValue(2, $this->pedidos['idPedido']);
+            $stmt->bindValue(1, $this->pedidos['desconto']);
+            $stmt->bindValue(2, $this->pedidos['tipoRecebimento']);
+            $stmt->bindValue(3, $this->pedidos['valorRecebido']);
+            $stmt->bindValue(4, $situacao);
+            $stmt->bindValue(5, $this->pedidos['idPedido']);
             return $stmt->execute();
         } catch (PDOException $e) {
             echo $e->getMessage();
