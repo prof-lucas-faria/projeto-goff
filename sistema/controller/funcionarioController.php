@@ -13,12 +13,13 @@ if(isset($_POST['login'])){
     if ($dados != null){
         session_start();
         $_SESSION['dados_usuario'] = $dados;
-        header('Location: ../view/PDV.php');
+        if ($_SESSION['dados_usuario']->funcao == 'Administrador') {
+            header('Location: ../view/PDV.php');   
+        } else{
+            header('Location: ../view/relatorioPedido.php');
+        }
     } else{
         header('Location: ../index.php');
-        echo '<pre>';
-        print_r($formulario_login);
-        echo '</pre>';
     }
 }
 

@@ -154,6 +154,24 @@ CREATE TABLE IF NOT EXISTS `sistemagerente`.`itensPedidos` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+INSERT INTO `sistemagerente`.`caixas` (`nome`, `idFuncionario`, `saldoInicial`, `status`) VALUES ('CAIXA 01', '1', '100.00', '1');
+INSERT INTO `sistemagerente`.`caixas` (`nome`, `idFuncionario`, `saldoInicial`, `status`) VALUES ('CAIXA 02', '2', '100.00', '1');
+
+INSERT INTO `sistemagerente`.`categorias` (`nome`, `status`) VALUES ('REFRIGERANTE', '1');
+INSERT INTO `sistemagerente`.`categorias` (`nome`, `status`) VALUES ('SANDUICHE', '1');
+
+INSERT INTO `sistemagerente`.`funcionarios` (`nome`, `CPF`, `endereco`, `sexo`, `funcao`, `telefone`, `whatsapp`, `senha`, `email`, `status`) VALUES ('JONATAS', '55555', 'TESTE', 'Masculino', 'Administrador', '333323', '3232323', md5('123'), 'jonatas@gmail.com', '1');
+INSERT INTO `sistemagerente`.`funcionarios` (`nome`, `CPF`, `endereco`, `sexo`, `funcao`, `telefone`, `whatsapp`, `senha`, `email`, `status`) VALUES ('TESTE', '123456', 'TESTE', 'Feminino', 'Cozinheiro', '323232323', '323232323', md5('123'), 'teste@gmail.com', '1');
+
+INSERT INTO `sistemagerente`.`mesas` (`nome`) VALUES ('MESA 1');
+INSERT INTO `sistemagerente`.`mesas` (`nome`) VALUES ('MESA 2');
+
+INSERT INTO `sistemagerente`.`produtos` (`nome`, `idCategoria`, `foto`, `precoCusto`, `precoVenda`, `status`) VALUES ('COCA COLA', '1', 'cocacola.jpg', '2.00', '5.00', '1');
+INSERT INTO `sistemagerente`.`produtos` (`nome`, `idCategoria`, `foto`, `precoCusto`, `precoVenda`, `status`) VALUES ('X SALADA', '2', 'x_salada.png', '6.00', '10.00', '1');
+
+
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

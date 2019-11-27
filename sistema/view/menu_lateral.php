@@ -12,23 +12,29 @@
             </ul>
         </li>
             
-        <?php endif ?>
+        
 
         <li><a href="#"> Vendas </a>
             <ul>
                 <li><a href="PDV.php"> PDV </a></li>
             </ul>
         </li>
+        <?php endif ?>
         <li><a href="#"> Relatórios </a>
-            <ul>
+            <ul><?php if ($_SESSION['dados_usuario']->funcao == 'Administrador') { ?>
+                
+
                 <li><a href="relatorioCaixa.php"> Caixas </a></li>
                 <li><a href="relatorioCategoria.php"> Categorias </a></li>
                 <li><a href="relatorioFuncionario.php"> Funcionários </a></li>
                 <li><a href="relatorioMesa.php"> Mesas </a></li>
+                <?php } ?>
                 <li><a href="relatorioPedido.php"> Pedidos </a></li>
+                <?php if ($_SESSION['dados_usuario']->funcao == 'Administrador') { ?>
                 <li><a href="relatorioProduto.php"> Produtos </a></li>
                 <li><a href="relatorioVenda.php"> Vendas </a></li>
                 <li><a href="relatorioVendaPorRecebimento.php"> Vendas por Recebimento </a></li>
+                <?php } ?>
             </ul>
         </li>
         <!-- MENU SIMPLES -->
