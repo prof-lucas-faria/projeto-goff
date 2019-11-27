@@ -149,6 +149,20 @@ body {
   background: #42C3F1;
 }
 
+.botao_principal_rel{
+  font-size: 1em;
+  font-weight:bold;
+  background: #00AFEF;
+  border: 0;
+  color: #FFF;
+  width: 300px;
+  height: 35px;
+}
+
+.botao_principal_rel:hover {
+  background: #42C3F1;
+}
+
 .botao_secundario{
   font-size: 1em;
   font-weight:bold;
@@ -561,4 +575,8 @@ table th {
 
 .texto{
   margin-left: 20px;
+}
+
+#botao_rel{
+  width: 100px;
 }

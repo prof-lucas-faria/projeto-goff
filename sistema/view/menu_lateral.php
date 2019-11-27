@@ -1,6 +1,7 @@
 <nav>
     <ul class='nav'>        
         <!-- MENU COM SUBMENU -->
+        <?php if ($_SESSION['dados_usuario']->funcao == 'Administrador'): ?>
         <li><a href="#"> Cadastros </a>
             <ul>
                 <li><a href="cadastroCaixa.php"> Caixas </a></li>
@@ -10,6 +11,9 @@
                 <li><a href="cadastroProduto.php"> Produtos </a></li>
             </ul>
         </li>
+            
+        <?php endif ?>
+
         <li><a href="#"> Vendas </a>
             <ul>
                 <li><a href="PDV.php"> PDV </a></li>
@@ -24,6 +28,7 @@
                 <li><a href="relatorioPedido.php"> Pedidos </a></li>
                 <li><a href="relatorioProduto.php"> Produtos </a></li>
                 <li><a href="relatorioVenda.php"> Vendas </a></li>
+                <li><a href="relatorioVendaPorRecebimento.php"> Vendas por Recebimento </a></li>
             </ul>
         </li>
         <!-- MENU SIMPLES -->

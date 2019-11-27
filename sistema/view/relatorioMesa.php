@@ -26,7 +26,7 @@
                                 <tr>
                                     <th>Cód</th>
                                     <th>Nome</th>
-				<tr>
+				                <tr>
                                 <?php foreach (listaMesas() as $mesas){?>
                                 <tr data-id="<?= $mesas->idMesa;?>">
                                     <td align="center"><?= $mesas->idMesa;?></td>

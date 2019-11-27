@@ -16,48 +16,32 @@
             <div class="form">
                 <?php require_once '../controller/pedidoController.php';?>
                 <div class="titulo_form">
-            	   <h2>Relatório de Pedidos</h2>
+            	   <h2>Relatório de Pedidos em Aberto</h2>
                 </div>
                 <fieldset>
                     <div >
                         <?php if (listaPedidos() != null) {?>
                         <div class="table">
-                            <div class="total_ped vl_total">
-                                <div>
-                                    <label>Total geral</label>
-                                </div>
-                                <div class="vl_total">
-                                    <input class="col1" readonly type="text" id="total" name="total">
-                                </div>
-                            </div>
                             <table>
                                 <tr>
                                     <th>N° Ped</th>
-                                    <th>Data</th>
+                                    <th>Data / Hora</th>
                                     <th>Funcionário</th>
                                     <th>Mesa</th>
                                     <th>Qtd Itens</th>
-                                    <th>Total Pedido</th>
+                                    <th align="center" width="120">Ação</th>
                                 </tr>
                                 <?php foreach (listaPedidos() as $pedidos){?>
                                 <tr data-id="<?= $pedidos->idPedido;?>">
                                     <td align="center"><?= $pedidos->idPedido;?></td>
-                                    <td align="center"><?= date('d/m/Y', strtotime($pedidos->data));?></td>
+                                    <td align="center"><?= date('d/m/Y H:i:s', strtotime($pedidos->data));?></td>
                                     <td><?= $pedidos->funcionario;?></td>
                                     <td><?= $pedidos->mesa;?></td>
-                                    <td><?= $pedidos->qtdItens;?></td>
-                                    <td id="subTotal" align="right"><?= number_format($pedidos->totalPedido,2,",",".");?></td>
+                                    <td align="center"><?= $pedidos->qtdItens;?></td>
+                                    <td align="center" width="120"><a href="impressaoPedido.php?pedido=<?php echo $pedidos->idPedido; ?>" target="_blank"><button class="botao_acao_p" id="botao_rel">Abrir</button></a></td>
                                 </tr>
                                 <?php }?>
                             </table>
-                            <div class="total_ped vl_total">
-                                <div>
-                                    <h3 class="texto">Total das vendas</h3>
-                                </div>
-                                <div class="vl_total">
-                                    <input class="col1" readonly type="text" id="total" name="total">
-                                </div>
-                            </div>
                         </div>
                         <?php }?>
                     </div>

@@ -1,0 +1,53 @@
+fieldset{
+width: 500px;
+margin: 10px auto;
+color: #444;
+border: 5px solid #ccc;
+font-family: Helvetica;
+padding: 15px;
+}
+
+h1, h2{
+text-align: center;
+}
+
+p.sub-titulo{
+font-size: 20px;
+}
+
+.direita{
+text-align: right;
+}
+
+.center{
+text-align: center;
+}
+
+.table{
+  padding-top: 1em;
+  margin-right:auto; margin-left:auto;}
+
+table {
+  font-family: Verdana, sans-serif;
+  font-size: 15px;
+  border-collapse: collapse;
+  width: 90%;
+
+}
+
+table td, table th {
+  
+  padding: 6px;
+}
+
+/*table tr:nth-child(even){background-color: #AFE2F9;}*/
+
+table tr{
+	border: 1px solid black
+}
+
+table th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}

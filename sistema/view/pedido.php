@@ -6,6 +6,7 @@
     if (!isset($_SESSION['dados'])) {
         $_SESSION['dados'] = array();
         $_SESSION['dados']['idMesa'] = "";
+        $_SESSION['dados']['nome'] = "";
         $_SESSION['dados']['observacao'] = "";
     }
     if (isset($_GET['add']) && $_GET['add'] == "itens") {
@@ -41,7 +42,14 @@
             </div>
             <?php } else{ ?>
             <div class="campo col1">
-                <input class="col1" type="text" id="idMesa" name="idMesa" onchange="enviar_form()" value="<?php echo $_SESSION['dados']['idMesa']; ?> ">
+                <input class="col1" type="hidden" id="idMesa" name="idMesa" onchange="enviar_form()" value="<?php echo $_SESSION['dados']['idMesa']; ?> ">
+                <select class="col1" id="idMesa" name="idMesa" required autofocus onchange="enviar_form()">
+                    <option selected="selected" value="<?php echo $_SESSION['dados']['idMesa']; ?>"><?php echo $_SESSION['dados']['nome'] ?></option>
+                    <option value="">Selecione a mesa</option>
+                    <?php foreach (listaMesas() as $mesas){?>
+                    <option id="<?= $mesas->idMesa; ?>" value="<?= $mesas->idMesa; ?>"><?= $mesas->nome;?></option>
+                    <?php }?>
+                </select>
             </div>
             <?php } ?>
             <div class="form_pedidos">
@@ -117,16 +125,15 @@
 
         <?php } ?>
         </form>
-        <div class="botao">
+        <div class="botao" align="center">
             <button class="botao_verde" onclick="mostrar_obs()" id="observacao" name="observacao">Observação</button>
             <input class="botao_principal" type="submit" form="cadastroPedido" id="salvar" name="salvar" value="Salvar">
             <input class="botao_secundario" type="submit" form="cadastroPedido" id="cancelar" name="cancelar" value="Cancelar">
-            <input class="botao_principal" type="submit" id="imprimir" name="imprimir" value="Imprimir">
         </div>
         <div >
             <?php if (listaPedidos() != null) {?>
             <div class="titulo_table">
-                <h3>Pedidos em aberto</h3>
+                <h3>Pedidos Lançados</h3>
             </div>
             <div class="table">
                 <table>

@@ -28,6 +28,7 @@
                                     <th>Data</th>
                                     <th>Funcionário</th>
                                     <th>Mesa</th>
+                                    <th>Tipo Recebimento</th>
                                     <th>Vl Pedido</th>
                                     <th>Desconto</th>
                                     <th>Vl Recebido</th>
@@ -38,6 +39,7 @@
                                     <td align="center"><?= date('d/m/Y', strtotime($pedidos->data));?></td>
                                     <td><?= $pedidos->funcionario;?></td>
                                     <td><?= $pedidos->mesa;?></td>
+                                    <td><?= $pedidos->tipoRecebimento;?></td>
                                     <td align="right" width="100"><?= number_format($pedidos->totalPedido,2,",",".");?></td>
                                     <td align="right" width="100"><?= number_format($pedidos->desconto,2,",",".");?></td>
                                     <td id="subTotal" align="right" width="100"><?= number_format($pedidos->valorRecebido,2,",",".");?></td>

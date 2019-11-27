@@ -13,12 +13,15 @@ if (isset($_POST['opcao']) && ($_POST['opcao']) == 'sessao') {
     $idMesa = $_POST['idMesa'];
     $observacao = $_POST['observacao'];
 
-    $_SESSION['dados'] = array();
-    $_SESSION['dados']['idMesa'] = $idMesa;
-    $_SESSION['dados']['observacao'] = $observacao;
-
+    foreach (listaMesas() as $mesa) {
+        if($mesa->idMesa == $idMesa){
+            $_SESSION['dados'] = array();
+            $_SESSION['dados']['idMesa'] = $idMesa;
+            $_SESSION['dados']['nome'] = $mesa->nome;
+            $_SESSION['dados']['observacao'] = $observacao;
+        }
+    }
     header("Location: ../view/PDV.php");
-
 }
 
 if (isset($_POST['salvar'])){
@@ -31,7 +34,7 @@ if (isset($_POST['salvar'])){
     $dadosFormularioPedido = array(
         'data' => $data,
         'idFuncionario' => $_SESSION['dados_usuario']->idFuncionario,
-        'idMesa' => $_POST['idMesa'],
+        'idMesa' => $_SESSION['dados']['idMesa'],
         'observacao' => $_POST['observacao'],
         'qtdItens' => $_POST['qtd_itens'],
         'totalPedido' => $_POST['total']
@@ -76,6 +79,21 @@ if(isset($_POST['finalizar'])){
     }
 }
 
+if(isset($_POST['vendasportipo'])){
+
+    if(isset($_SESSION['tipo'])){
+        unset($_SESSION['tipo']);
+    }
+
+    $dadosVendasTipo = array(
+        'tipoRecebimento' => $_POST['tipoRecebimento']
+    );
+    $vendasportipo = new Pedido(DB::getInstance(), $dadosVendasTipo);
+    $_SESSION['tipo'] = $vendasportipo->vendasportipo();
+    header("Location: ../view/relatorioVendaPorRecebimento.php");
+    
+}
+
 function listaPedidos() {
     $pedido = new Pedido(DB::getInstance(), null);
     return $pedido->listar();
@@ -84,6 +102,11 @@ function listaPedidos() {
 function listaVendas() {
     $pedido = new Pedido(DB::getInstance(), null);
     return $pedido->relatorio();
+}
+
+function imprimirPedidos() {
+    $pedido = new Pedido(DB::getInstance(), null);
+    return $pedido->impressao();
 }
 
 function listaFuncionarios() {

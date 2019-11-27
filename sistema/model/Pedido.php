@@ -109,6 +109,40 @@ class Pedido{
         }
     }
 
+    public function impressao() {
+        try {
+            $sql = 'SELECT i.idPedido, m.nome as mesa, p.data, pr.nome as produto, quantidade, pr.precoVenda
+                    FROM itenspedidos i
+                    INNER JOIN pedidos p ON i.idPedido = p.idPedido
+                    INNER JOIN produtos pr ON i.idProduto = pr.idProduto
+                    INNER JOIN mesas m ON p.idMesa = m.idMesa
+                    WHERE p.situacao = 1;';
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function vendasportipo() {
+        try {
+            $sql = 'SELECT idPedido, data, p.idFuncionario, f.nome as funcionario, p.idMesa, m.nome as mesa,
+observacao, qtdItens, totalPedido, desconto, IF(tipoRecebimento=1,"Dinheiro",IF(tipoRecebimento=2,"Cartão Débito",IF(tipoRecebimento=3,"Cartão Crédito",""))) as tipoRecebimento, valorRecebido
+FROM pedidos p
+INNER JOIN funcionarios f ON p.idFuncionario = f.idFuncionario
+INNER JOIN mesas m ON p.idMesa = m.idMesa
+WHERE p.status > 0 AND p.situacao = 2 AND tipoRecebimento = ?
+ORDER BY idPedido DESC';
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $this->pedidos['tipoRecebimento']);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
     public function deletar() {
 
         try {

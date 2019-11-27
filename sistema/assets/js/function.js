@@ -7,6 +7,7 @@ for (var i = 0; i < tdsValores.length; i++) {
 total = total.toLocaleString('pt-br', {minimumFractionDigits: 2});
 document.getElementById('total').value = total;
 
+
 var tdsQuant = document.querySelectorAll('#quant')
 var t_quant = 0
 for (var i = 0; i < tdsQuant.length; i++) {
